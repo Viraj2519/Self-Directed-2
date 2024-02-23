@@ -1,26 +1,38 @@
 
 #include <stdio.h> 
-#define maxValue 10;
 int getNum();
-int modifyArrayValues(int[]);
+void modifyArrayValues(int[], int);
+int maxArrayValue(int[], int);
 
 int main(void) {
-	int array10Numbers[10] = { 0 };
-	int i = 0;
-	int index = 0;
-	int highestValue = 0;
 
-	printf("Please enter 10 integers, pressing ENTER after each one:\n");
-
-	
-		printf("The highest value is %d at index %d\n", highestValue, index);
-	
+	int array[10] = {0};
+	modifyArrayValues(array, 10);
+	int index = maxArrayValue(array, 10);
+	printf("highest = %d", array[index]);
+	return 0;
 }
 
-int modifyArrayValues(int array[maxValue]) {
-	for (i = 0; i < 10; i++) {
-		array10Numbers[i] = getNum();
+
+void modifyArrayValues(int array[], int arraySize) {
+	array[10] = { 0 };
+	int i = 0;
+	printf("Please enter 10 integers, pressing ENTER after each one:\n");
+	for (i = 0; i < arraySize; i++) {
+		array[i] = getNum();
 	}
+}
+int maxArrayValue(int array[], int arraySize) {
+	int highestValue = 0;
+	int index = 0;
+	for (int i = 0; i < arraySize; i++) {
+
+		if (i == 0 || array[i] > highestValue) {
+			highestValue = array[i];
+			index = i;
+		}
+	}
+	return index;
 }
 #pragma warning(disable: 4996) // required by Visual Studio
 int getNum(void) {
