@@ -1,27 +1,60 @@
-
+/*
+* FILE: f5.cpp
+* PROJECT: SENG1000 - Focused Assignment 5
+* PROGRAMMER: Virajsinh Dharmendrasinh Solanki
+* FIRST VERSION: 2024-02-23
+* DESCRIPTION: This program is used to determine the highest
+*			   number out of the 10 number which the user inputs 
+*			   with the use of functions.
+* 
+*/
 #include <stdio.h> 
 int getNum();
 void modifyArrayValues(int[], int);
 int maxArrayValue(int[], int);
-
+//all the declared functions
 int main(void) {
-
 	int array[10] = {0};
+	int index = 0;
+	//array and variables initialized
 	modifyArrayValues(array, 10);
-	int index = maxArrayValue(array, 10);
-	printf("highest = %d", array[index]);
+    index = maxArrayValue(array, 10);
+	printf("The highest value is %d at index %d", array[index],index);
 	return 0;
 }
 
+/*
+* FUNCTION :  modifyArrayValues
+*
+* DESCRIPTION : These Function is used to get the values 
+				for all the elements in array.
 
+* PARAMETERS : array[]: to store the value of the user inputs in the array.
+*			   arraySize : this variable is the size of array
+*		 
+*
+* RETURNS :   This funtion does not return any value.
+*/
 void modifyArrayValues(int array[], int arraySize) {
-	array[10] = { 0 };
 	int i = 0;
 	printf("Please enter 10 integers, pressing ENTER after each one:\n");
 	for (i = 0; i < arraySize; i++) {
 		array[i] = getNum();
 	}
 }
+
+/*
+* FUNCTION :    maxArrayValue
+*
+* DESCRIPTION : These Function is used to get the highest value
+				of all the elements in array.
+
+* PARAMETERS : array[]: to store the value of the user inputs in the array.
+*			   arraySize : this variable is the size of array
+*
+*
+* RETURNS :   index: This is the index of the highest element in the array
+*/
 int maxArrayValue(int array[], int arraySize) {
 	int highestValue = 0;
 	int index = 0;
